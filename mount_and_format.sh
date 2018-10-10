@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while [ ! -d /sys/block/xvdb ]; do exit; done
+while [ ! -d /sys/block/xvdb ]; do sleep 1; done
 if [ ! -d /sys/block/xvdb/xvdb1 ]; then
     echo -e "g\nn\np\n1\n\n\nw" | sudo fdisk /dev/xvdb
     sudo mkfs.ext4 /dev/xvdb1
